@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 public class BashLearningGame {
     public static void main(String[] args) {
-        playGame();
+        loopGame();
     }
     
 
@@ -13,9 +13,8 @@ public class BashLearningGame {
                            "BASH command to complete a task, based on it's difficulty level.\n" +
                            "You have FIVE (5) attempts to complete each challenge. You can write 'help' at any time to access the BASH manual.\n" +
                            "If you fail to complete the challenge in five attempts, you will receive an explanation on how to complete\n" + 
-                            "the challenge and the correct command to do so.\n" +
-                           "Your score will be 0 if you fail to complete the challenge, you will have the chance to try again the\n" +
-                           "next day!d");
+                            "the challenge and the correct command to do so.\n" + 
+                            "You can EXIT the game at any time by typing 'exit'.");
     }
     public static int getDifficultyLevel() {
         Scanner reader = new Scanner(System.in);
@@ -35,27 +34,30 @@ public class BashLearningGame {
         }
         return difficultyLevel;
     }
-    public static void playGame() {
+    public static int playGame(int streak) {
         Scanner reader = new Scanner(System.in);
         int MAX_ATTEMPTS = 5;
         instructions();
         int difficulty = getDifficultyLevel();
         Challenge challenge = ChallengeBank.getRandom(difficulty);
         System.out.println("Your challenge is: " + challenge.getPrompt());
-        String input = help();
+        String input = input();
         int attempt = 1;               
         for (boolean isSolved = challenge.checkAnswer(input); !isSolved && !(attempt > MAX_ATTEMPTS); isSolved = challenge.checkAnswer(input)) {
             System.out.println("Incorrect answer. Try again!");
-            input = help();
+            input = input();
             attempt++;
         }
         if (attempt > MAX_ATTEMPTS) {
-            System.out.println("You have exceeded the maximum number of attempts. The correct answer is: " + challenge.getAnswer());
+            System.out.println("You have exceeded the maximum number of attempts. The correct answer is: " + challenge.getAnswer() + "Streak Reset to 0!");
+            streak = 0;
         } else {
-            System.out.println("Congratulations! You have completed the daily BASH challenge. Come back tomorrow for a new one!");
+            streak++;
+            System.out.println("Congratulations! You have completed the daily BASH challenge. Streak: " + streak);
         }
+        return streak;
     }
-    public static String help() {
+    public static String input() {
         Scanner reader = new Scanner(System.in);
         while (true) {
             String line = reader.nextLine().trim();
@@ -63,9 +65,20 @@ public class BashLearningGame {
                 System.out.println("You can find the BASH manual at the following link:");
                 System.out.println("https://www.gnu.org/software/bash/manual/bash.html");
                 System.out.print("> ");
-            } else {
+            } 
+            if (line.equalsIgnoreCase("exit")) {
+                System.out.println("Thanks for playing!");
+                System.exit(0);
+            }
+            else {
                 return line;
             }
+        }
+    }
+    public static void loopGame() {
+        while (true) {
+            int streak = 0;
+            streak = playGame(streak);
         }
     }
 }
