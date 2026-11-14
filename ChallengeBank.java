@@ -37,7 +37,39 @@ public class ChallengeBank {
             case 3: section = HARD; break;
             default: throw new IllegalArgumentException("Difficulty must be 1 to 3");
         }
+        int[] easyChallengeIndex = new int[5];
+        int randomNumber = random.nextInt(section.length);
+        for (int i = 0; i < easyChallengeIndex.length; i++) {
+            if (easyChallengeIndex[i] == randomNumber) {
+                randomNumber = random.nextInt(section.length);
+                i = -1; // Reset the loop to check for duplicates again
+            } else {
+                easyChallengeIndex[i] = randomNumber;
+            }
+        }
 
-        return section[random.nextInt(section.length)];
+        int[] mediumChallengeIndex = new int[5];
+        int randomNumber = random.nextInt(section.length);
+        for (int i = 0; i < mediumChallengeIndex.length; i++) {
+            if (mediumChallengeIndex[i] == randomNumber) {
+                randomNumber = random.nextInt(section.length);
+                i = -1; // Reset the loop to check for duplicates again
+            } else {
+                mediumChallengeIndex[i] = randomNumber;
+            }
+        }
+
+        int[] hardChallengeIndex = new int[5];
+        int randomNumber = random.nextInt(section.length);
+        for (int i = 0; i < hardChallengeIndex.length; i++) {
+            if (hardChallengeIndex[i] == randomNumber) {
+                randomNumber = random.nextInt(section.length);
+                i = -1; // Reset the loop to check for duplicates again
+            } else {
+                hardChallengeIndex[i] = randomNumber;
+            }
+        }
+
+        return section[randomNumber];
     }
 }
