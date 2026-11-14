@@ -26,7 +26,7 @@ public class BashLearningGame {
         int difficulty = reader.nextInt();
         for (boolean validInput = difficulty >= 1 && difficulty <= 3; !validInput; validInput = difficulty >= 1 && difficulty <= 3) {
             System.out.println("Invalid input. Please choose a valid difficulty level.");
-            difficulty = reader.nextInt(); //implement validation for number (characters fuck up)
+            difficulty = reader.nextInt(); //implement validation for number (characters mess up)
         }
         return difficulty;
     }
