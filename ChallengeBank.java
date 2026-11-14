@@ -2,23 +2,24 @@ import java.util.Random;
 
 public class ChallengeBank {
     public static final Challenge[] EASY = {
-        new Challenge("")
-    
+        new Challenge("What is the command to list all files in a directory?","ls"),
+        new Challenge("What is the command to list all files in a directory?","pwd")
     };
 
     public static final Challenge[] MEDIUM = {
-        new Challenge("")
+        new Challenge("","")
+    
 
     };
 
     public static final Challenge[] HARD = {
-        new Challenge("");
+        new Challenge("","")
 
     };
 
     // banks for challenges of the 3 types of difficulties
 
-    static Random random = new Random();
+    private static Random random = new Random();
 
     public static Challenge getRandom(int difficulty) {
         Challenge[] section;

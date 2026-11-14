@@ -2,8 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 public class BashLearningGame {
     public static void main(String[] args) {
-        instructions();
-        getDifficultyLevel();
+        playGame();
     }
     
 
@@ -30,9 +29,24 @@ public class BashLearningGame {
         }
         return difficulty;
     }
-    public static int generateChallengeIndex() {
-        Random rand = new Random();
-        int challengeIndex = rand.nextInt(5);
-        return challengeIndex;
+    public static void playGame() {
+        Scanner reader = new Scanner(System.in);
+        int MAX_ATTEMPTS = 4;
+        instructions();
+        int difficulty = getDifficultyLevel();
+        Challenge challenge = ChallengeBank.getRandom(difficulty);
+        System.out.println("Your challenge is: " + challenge.getPrompt());
+        String input = reader.nextLine();
+        int attempt = 1;               
+        for (boolean isSolved = challenge.checkAnswer(input); !isSolved && !(attempt > MAX_ATTEMPTS); isSolved = challenge.checkAnswer(input)) {
+            System.out.println("Incorrect answer. Try again!");
+            input = reader.nextLine();
+            attempt++;
+        }
+        if (attempt > MAX_ATTEMPTS) {
+            System.out.println("You have exceeded the maximum number of attempts. The correct answer is: " + challenge.getAnswer());
+        } else {
+            System.out.println("Congratulations! You have completed the daily BASH challenge. Come back tomorrow for a new one!");
+        }
     }
 }
