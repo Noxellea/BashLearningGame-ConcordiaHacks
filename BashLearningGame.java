@@ -15,7 +15,7 @@ public class BashLearningGame {
                            "If you fail to complete the challenge in five attempts, you will receive an explanation on how to complete\n" + 
                             "the challenge and the correct command to do so.\n" +
                            "Your score will be 0 if you fail to complete the challenge, you will have the chance to try again the\n" +
-                           "next day!");
+                           "next day!d");
     }
     public static int getDifficultyLevel() {
         Scanner reader = new Scanner(System.in);
