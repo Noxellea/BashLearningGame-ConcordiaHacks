@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 public class BashLearningGame {
     public static void main(String[] args) {
+        instructions();
         loopGame();
     }
     
@@ -37,7 +38,6 @@ public class BashLearningGame {
     public static int playGame(int streak) {
         Scanner reader = new Scanner(System.in);
         int MAX_ATTEMPTS = 5;
-        instructions();
         int difficulty = getDifficultyLevel();
         Challenge challenge = ChallengeBank.getRandom(difficulty);
         System.out.println("Your challenge is: " + challenge.getPrompt());

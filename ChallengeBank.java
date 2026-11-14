@@ -82,6 +82,6 @@ public class ChallengeBank {
             }
             return section[randomNumber];
         }
-
+        return null; // This line should never be reached due to the earlier checks
     }
 }
