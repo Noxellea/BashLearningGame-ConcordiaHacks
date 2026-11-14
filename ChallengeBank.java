@@ -18,17 +18,17 @@ public class ChallengeBank {
 
     // banks for challenges of the 3 types of difficulties
 
-    Random random = new Random();
+    static Random random = new Random();
 
     public static Challenge getRandom(int difficulty) {
         Challenge[] section;
         switch (difficulty) {
             case 1: section = EASY; break;
-            case 2: section = EASY; break;
-            case 3: section = EASY; break;
+            case 2: section = MEDIUM; break;
+            case 3: section = HARD; break;
             default: throw new IllegalArgumentException("Difficulty must be 1 to 3");
         }
-        
+
         return section[random.nextInt(section.length)];
     }
 }
