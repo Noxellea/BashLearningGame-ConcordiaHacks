@@ -12,8 +12,8 @@ public class BashLearningGame {
                            "Practice your Bash skills by completing one daily challenge of the difficulty\n" +
                            "level of your choice, being EASY, MEDIUM, or HARD. You will be asked to write a \n" +
                            "BASH command to complete a task, based on it's difficulty level.\n" +
-                           "You have FIVE (5) attempts to complete each challenge. You can write 'help' at any time to access the BASH manual.\n" +
-                           "If you fail to complete the challenge in five attempts, you will receive an explanation on how to complete\n" + 
+                           "You have FOUR (4) attempts to complete each challenge. You can write 'help' at any time to access the BASH manual.\n" +
+                           "If you fail to complete the challenge in four attempts, you will receive an explanation on how to complete\n" + 
                             "the challenge and the correct command to do so.\n" + 
                             "You can EXIT the game at any time by typing 'exit'.");
     }
