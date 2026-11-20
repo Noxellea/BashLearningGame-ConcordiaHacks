@@ -5,7 +5,7 @@ public class ChallengeBank {
             new Challenge("Write a command to show the current working directory", "pwd"),
             new Challenge("Write a command to list all files in the current directory", "ls"),
             new Challenge("Write a command to create a directory called \"test\"", "mkdir test"),
-            new Challenge("Write a command to delete a file called \"test.txt\"", "r test.txt"),
+            new Challenge("Write a command to delete a file called \"test.txt\"", "rm test.txt"),
             new Challenge("Write a command to change the current directory to \"/home/users/work/college/semester1\"",
                     "cd /home/users/work/college/semester1"),
 
