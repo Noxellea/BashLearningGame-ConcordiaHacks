@@ -19,6 +19,12 @@ public class ChallengeBank {
             new Challenge(
                     "Write a command to display all files in the previous directory, including hidden ones, that starts with the letter \"a\"",
                     "ls -a ../a*"),
+            new Challenge(
+                    "Write a command to display the contents of the file \"test.txt\" in the terminal with numbered lines and no extra empty lines",
+                    "cat -bs test.txt"),
+            new Challenge("Write a command to display the first 20 bytes of the file \"test.txt\" in the terminal",
+                    "head -c 20test.txt"),
+            new Challenge("Write a command to remove a directory called \"test\" and all of its contents", "rm -r test")
 
     };
 
