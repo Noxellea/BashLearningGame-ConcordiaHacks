@@ -65,8 +65,9 @@ public class ChallengeBank {
                 throw new IllegalArgumentException("Difficulty must be 1 to 3");
         }
 
+        int[] easyChallengeIndex = new int[5];
         if (difficulty == 1) {
-            int[] easyChallengeIndex = new int[5];
+
             int randomNumber = random.nextInt(section.length);
             for (int i = 0; i < easyChallengeIndex.length; i++) {
                 if (easyChallengeIndex[i] == randomNumber) {
@@ -80,8 +81,9 @@ public class ChallengeBank {
             return section[randomNumber];
         }
 
+        int[] mediumChallengeIndex = new int[5];
         if (difficulty == 2) {
-            int[] mediumChallengeIndex = new int[5];
+
             int randomNumber = random.nextInt(section.length);
             for (int i = 0; i < mediumChallengeIndex.length; i++) {
                 if (mediumChallengeIndex[i] == randomNumber) {
@@ -95,8 +97,9 @@ public class ChallengeBank {
             return section[randomNumber];
         }
 
+        int[] hardChallengeIndex = new int[5];
         if (difficulty == 3) {
-            int[] hardChallengeIndex = new int[5];
+            
             int randomNumber = random.nextInt(section.length);
             for (int i = 0; i < hardChallengeIndex.length; i++) {
                 if (hardChallengeIndex[i] == randomNumber) {
